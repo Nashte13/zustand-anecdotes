@@ -13,6 +13,13 @@ const App = () => {
   const maxVotes = Math.max(...votes)
   const maxIndex = votes.indexOf(maxVotes)
 
+  const addAnecdote = (e) => {
+    e.preventDefault()
+    const content = e.target.anecdote.value
+    actions.add(content)
+    e.target.reset()
+  }
+
   return (
     <div>
       <h1>Anecdote of the day</h1>
@@ -21,6 +28,12 @@ const App = () => {
 
       <Button onClick={actions.next} text="next anecdote" />
       <Button onClick={actions.vote} text="vote" />
+
+      <h1>Add new Anecdote</h1>
+      <form onSubmit={addAnecdote}>
+        <input name='anecdote' />
+        <button type='submit'>add</button>
+      </form>
 
       <h1>Anecdote with the most votes</h1>
       {maxVotes > 0 && (
