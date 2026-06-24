@@ -1,3 +1,4 @@
+import AnecdoteForm from './components/AnecdoteForm'
 import { useAnecdoteStore } from './store'
 
 const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
@@ -21,6 +22,8 @@ const App = () => {
 
       <Button onClick={actions.next} text="next anecdote" />
       <Button onClick={actions.vote} text="vote" />
+
+      <AnecdoteForm />
 
 
       <h1>Anecdote with the most votes</h1>
