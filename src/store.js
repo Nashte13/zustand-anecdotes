@@ -22,6 +22,10 @@ export const useAnecdoteStore = create((set) => ({
             const newVotes = [...state.votes]
             newVotes[state.selected] += 1
             return { votes: newVotes }
-        })
+        }),
+        add: (content) => set(state => ({
+            anecdotes: state.anecdotes.concat(content),
+            votes: state.votes.concat(0) //keep votes array in sync
+        }))
   }
 }));
