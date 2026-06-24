@@ -6,7 +6,7 @@ const AnecdoteList = () => {
     return (
         <ul>
             {anecdotes.map((anecdote, index) => (
-                <li>
+                <li key={index}>
                     {anecdote} <br />
                     has {votes[index]}
                     <button onClick={() => actions.vote(index)}>vote</button>
