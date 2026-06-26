@@ -15,12 +15,9 @@ export const useAnecdoteStore = create((set) => ({
   ],
     actions: {
         initVotes: (length) => set({ votes: Array(length).fill(0) }),
-        next: () => set(state => ({
-            selected: Math.floor(Math.random() * state.anecdotes.length)
-        })),
-        vote: () => set(state => {
+        vote: (index) => set(state => {
             const newVotes = [...state.votes]
-            newVotes[state.selected] += 1
+            newVotes[index] += 1
             return { votes: newVotes }
         }),
         add: (content) => set(state => ({
