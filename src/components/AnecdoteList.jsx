@@ -3,9 +3,15 @@ import { useAnecdoteStore } from '../store'
 const AnecdoteList = () => {
     const {anecdotes, votes, actions} = useAnecdoteStore()
 
+    //pair anecdotes with votes
+    const combined = anecdotes.map((a, i) => ({ content: a, votes: votes[i], index: i }))
+    
+    //sort by descending
+    const sorted = [...combined].sort((a, b) => b.votes - a.votes)
+
     return (
         <ul>
-            {anecdotes.map((anecdote, index) => (
+            {sorted.map((anecdote, index) => (
                 <li key={index}>
                     {anecdote} <br />
                     has {votes[index]}
