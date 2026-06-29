@@ -4,7 +4,7 @@ const AnecdoteList = () => {
     const {anecdotes, votes, actions} = useAnecdoteStore()
 
     //pair anecdotes with votes
-    const combined = anecdotes.map((a, i) => ({ content: a, votes: votes[i], index: i }))
+    const combined = anecdotes.map((a, i) => ({ content: a, votes: votes[i], index: 1 }))
     
     //sort by descending
     const sorted = combined.toSorted((a, b) => b.votes - a.votes)
@@ -14,7 +14,7 @@ const AnecdoteList = () => {
             {sorted.map(({ content, votes, index }) => (
                 <li key={index}>
                     {content} <br />
-                    has {votes[index]}
+                    has {votes} votes
                     <button onClick={() => actions.vote(index)}>vote</button>
                 </li>
             ))}
