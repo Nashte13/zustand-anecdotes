@@ -11,7 +11,7 @@ const AnecdoteList = () => {
 
     return (
         <ul>
-            {sorted.map((content, vote, index) => (
+            {sorted.map(({ content, votes, index }) => (
                 <li key={index}>
                     {content} <br />
                     has {votes[index]}
