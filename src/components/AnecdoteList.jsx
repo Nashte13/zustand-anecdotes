@@ -11,9 +11,9 @@ const AnecdoteList = () => {
 
     return (
         <ul>
-            {sorted.map((anecdote, index) => (
+            {sorted.map((content, vote, index) => (
                 <li key={index}>
-                    {anecdote} <br />
+                    {content} <br />
                     has {votes[index]}
                     <button onClick={() => actions.vote(index)}>vote</button>
                 </li>
