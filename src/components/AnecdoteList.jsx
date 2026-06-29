@@ -7,7 +7,7 @@ const AnecdoteList = () => {
     const combined = anecdotes.map((a, i) => ({ content: a, votes: votes[i], index: i }))
     
     //sort by descending
-    const sorted = [...combined].sort((a, b) => b.votes - a.votes)
+    const sorted = combined.toSorted((a, b) => b.votes - a.votes)
 
     return (
         <ul>
