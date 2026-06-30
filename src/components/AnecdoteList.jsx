@@ -4,7 +4,7 @@ const AnecdoteList = () => {
     const {anecdotes, votes, actions} = useAnecdoteStore()
 
     //pair anecdotes with votes
-    const combined = anecdotes.map((a, i) => ({ content: a, votes: votes[i], index: 1 }))
+    const combined = anecdotes.map((a, i) => ({ id: a.id, content: a.content, votes: votes[i], index: i }))
     
     //sort by descending
     const sorted = combined.toSorted((a, b) => b.votes - a.votes)
