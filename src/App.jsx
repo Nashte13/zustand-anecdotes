@@ -7,11 +7,12 @@ const App = () => {
 
   //initialize votes if empty
   if (votes.length === 0) {
-    actions.initiVotes(anecdotes.length)
+    actions.initVotes(anecdotes.length)
   }
 
   return (
     <div>
+      <h1>Anecdote Voting</h1>
       <AnecdoteList />
       <AnecdoteForm />
     </div>
